@@ -18,3 +18,7 @@ This is a static website that can be hosted on any static hosting service:
 - Vercel
 - AWS S3
 - Google Cloud Storage
+
+## Event Information
+- Second Annual Walk: August 1, 2026
+- Breweries visited during the event are displayed on a black and white static map
