@@ -50,3 +50,9 @@ To use the custom domain walk.beer:
 1. Add a CNAME file with "walk.beer" content
 2. Verify your domain in GitHub Pages settings
 3. Configure DNS records to point to GitHub's servers
+
+## Future Pages
+This website is designed to be expanded with additional pages:
+- About Section
+- History Page
+- Photo Repository
