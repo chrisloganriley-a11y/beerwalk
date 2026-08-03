@@ -30,3 +30,9 @@ To deploy this website to GitHub Pages:
 3. Enable GitHub Pages in repository settings
 4. Set the source to "main branch /docs folder"
 5. Your site will be live at https://<username>.github.io/beerwalk/
+
+## Custom Domain Setup
+To use the custom domain walk.beer:
+1. Add a CNAME file with "walk.beer" content
+2. Verify your domain in GitHub Pages settings
+3. Configure DNS records to point to GitHub's servers
