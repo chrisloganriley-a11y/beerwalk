@@ -1,58 +1,50 @@
-# beerwalk
+# walk.beer
 
-A self-guided pub crawl application for discovering local breweries and pubs.
+The Riley & Friends Beer Walk — an annual, self-organized walking tour of
+the breweries, cideries, and taprooms of Fishtown and Kensington,
+Philadelphia. This repo is the source for [walk.beer](https://walk.beer),
+a blog-style archive of each year's walk: routes, stops, stories, and a
+running list of every place visited, rated on our own Momentum Scale.
 
-## Website
-https://walk.beer
+This is documentation, not a business — no booking, no payments, no
+accounts. See [`SPEC.md`](SPEC.md) for the full product spec.
 
-## Features
-- Self-guided pub crawl routes
-- Custom route creation
-- Pub reviews and sharing
-- Mobile-friendly design
+## Structure
 
-## Hosting
-This is a static website that can be hosted on any static hosting service:
-- GitHub Pages
-- Netlify
-- Vercel
-- AWS S3
-- Google Cloud Storage
+Only `/public` is deployed. Everything else (this file, `SPEC.md`, the
+GitHub Actions workflow) stays out of the live site.
 
-## Event Information
-- Second Annual Walk: August 1, 2026
-- Breweries visited during the event are displayed on a black and white static map
+```
+public/
+  index.html          Home
+  walks/               Index of every walk
+  walks/2025/          The Inaugural Walk
+  walks/2026/          The Second Annual Walk
+  breweries/           Every stop, mapped and rated
+  about/                Origin story
+  assets/css/          Shared stylesheet
+  assets/js/            Brewery data + map behavior
+  assets/vendor/leaflet/  Self-hosted Leaflet (map library)
+  robots.txt, sitemap.xml
+```
 
-## Breweries Visited (Kensington & Fishtown, Philadelphia)
-- Human Robot Brewing
-- Fermentary Form
-- Wissahickon Brewing
-- Punch Buggy Brewery
-- Sacred Vice
-- Lost Time Brewing
-- Arsenal Brewing
-- St. Oners
-- Evil Genius Brewing
-- Pips Brewing
-- Forest & Main
-- Mural City Cellars
+No build step, no framework — static HTML/CSS with a small amount of
+vanilla JS for the map. Map tiles load from OpenStreetMap's public tile
+servers (free, no API key); everything else, including the Leaflet
+library itself, is self-hosted — no third-party analytics or trackers.
 
 ## Deployment
-To deploy this website to GitHub Pages:
-1. Create a new repository named "beerwalk" on GitHub
-2. Push your code to the main branch
-3. Enable GitHub Pages in repository settings
-4. Set the source to "main branch /docs folder"
-5. Your site will be live at https://<username>.github.io/beerwalk/
 
-## Custom Domain Setup
-To use the custom domain walk.beer:
-1. Add a CNAME file with "walk.beer" content
-2. Verify your domain in GitHub Pages settings
-3. Configure DNS records to point to GitHub's servers
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which publishes
+`/public` to the `gh-pages` branch. GitHub Pages serves that branch at the
+custom domain `walk.beer` (DNS + CNAME already configured).
 
-## Future Pages
-This website is designed to be expanded with additional pages:
-- About Section
-- History Page
-- Photo Repository
+## Adding a new year's walk
+
+1. Add `public/walks/YYYY/index.html` (copy an existing year as a
+   starting point).
+2. Add its stops to `public/breweries/index.html` and
+   `public/assets/js/breweries-data.js` (new entries, or add the year to
+   an existing brewery's `years` list).
+3. Add the new walk to `public/walks/index.html` and the homepage.
+4. Add its URL to `public/sitemap.xml`.
