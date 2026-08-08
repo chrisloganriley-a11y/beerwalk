@@ -1,0 +1,572 @@
+/* walk.beer — shared design system
+   Editorial, warm, no third-party fonts or frameworks. */
+
+:root {
+  --paper: #faf6ef;
+  --paper-raised: #ffffff;
+  --ink: #211c15;
+  --ink-soft: #6b6153;
+  --ink-faint: #948a7a;
+  --accent: #b6551b;
+  --accent-ink: #ffffff;
+  --accent-soft: #f1e3d1;
+  --line: #e6dcc8;
+
+  --tier-sprint: #a13a22;
+  --tier-run: #b6551b;
+  --tier-walk: #a3854f;
+  --tier-crawl: #6f6558;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --max-read: 42rem;
+  --max-wide: 68rem;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #17140f;
+    --paper-raised: #201b14;
+    --ink: #f2ece0;
+    --ink-soft: #b7ac98;
+    --ink-faint: #857c6c;
+    --accent: #e08a4b;
+    --accent-ink: #17140f;
+    --accent-soft: #2c2013;
+    --line: #362d1f;
+
+    --tier-sprint: #d9583a;
+    --tier-run: #e08a4b;
+    --tier-walk: #c2a06a;
+    --tier-crawl: #8a8072;
+
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1.1em; }
+
+.container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.prose {
+  max-width: var(--max-read);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.prose p, .prose ul { font-size: 1.05rem; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.6em;
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 3rem 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.75em 1.2em;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Site header */
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark:hover { text-decoration: none; }
+
+.wordmark svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  color: var(--accent);
+}
+
+.wordmark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.wordmark-text strong {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.wordmark-text strong .dot {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.25em;
+}
+
+.wordmark-text span {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 5rem;
+  padding: 2.5rem 0 3rem;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+}
+
+/* Hero */
+.hero {
+  padding: 4.5rem 0 3.5rem;
+}
+
+.hero .eyebrow { color: var(--accent); }
+
+.hero p.lede {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 38rem;
+}
+
+/* Cards / grids */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 760px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.6rem;
+}
+
+.walk-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.walk-card:hover {
+  border-color: var(--accent);
+}
+
+.walk-card .eyebrow { margin-bottom: 0.3em; }
+
+.walk-card h3 {
+  margin-bottom: 0.3em;
+}
+
+.walk-card p {
+  color: var(--ink-soft);
+  margin-bottom: 0.8em;
+}
+
+.walk-card .stat-line {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+/* Photo placeholder */
+.photo-slot {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1px dashed var(--line);
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Momentum tier badges */
+.tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.28em 0.7em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.tier::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+.tier-sprint { background: var(--tier-sprint); }
+.tier-run    { background: var(--tier-run); }
+.tier-walk   { background: var(--tier-walk); }
+.tier-crawl  { background: var(--tier-crawl); }
+
+.tier-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.2rem 0 2rem;
+}
+
+/* Brewery rollup list */
+.brewery-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.brewery-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper-raised);
+  scroll-margin-top: 6rem;
+}
+
+.brewery-item.is-highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+@media (max-width: 640px) {
+  .brewery-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brewery-item h3 {
+  margin: 0 0 0.2em;
+  font-size: 1.1rem;
+}
+
+.brewery-item .neighborhood {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-bottom: 0.5em;
+}
+
+.brewery-item .blurb {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.brewery-item .years {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-top: 0.6em;
+}
+
+/* Map */
+.map-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  margin: 1.5rem 0 2.5rem;
+}
+
+#brewery-map {
+  height: 480px;
+  width: 100%;
+  background: var(--accent-soft);
+}
+
+.map-fallback {
+  padding: 2rem;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* cartoon tint over the raster tiles */
+#brewery-map .leaflet-tile-pane {
+  filter: saturate(0.45) sepia(0.25) brightness(1.05) contrast(0.95);
+}
+
+@media (prefers-color-scheme: dark) {
+  #brewery-map .leaflet-tile-pane {
+    filter: saturate(0.35) sepia(0.2) brightness(0.6) contrast(1.05) invert(0.92) hue-rotate(180deg);
+  }
+}
+
+.pin-icon {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  font-family: var(--sans);
+}
+
+.leaflet-popup-content {
+  margin: 0.9rem 1rem;
+}
+
+.popup-tier {
+  margin-bottom: 0.4em;
+}
+
+.popup-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.2em;
+}
+
+.popup-blurb {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0.3em 0 0;
+}
+
+.popup-link {
+  display: inline-block;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.7em 1.3em;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+/* Stat row (route summary on walk pages) */
+.stat-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+.stat-row .stat .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.2em;
+}
+
+.stat-row .stat .value {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+}
+
+/* Stop list (ordered route on a walk recap page) */
+.stop-list {
+  list-style: none;
+  margin: 2rem 0;
+  padding: 0;
+  counter-reset: stop;
+}
+
+.stop-list li {
+  counter-increment: stop;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.stop-list li:last-child { border-bottom: none; }
+
+.stop-list li::before {
+  content: counter(stop);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.stop-list .stop-name {
+  font-weight: 600;
+}
+
+.stop-list .stop-note {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+section { padding: 2.5rem 0; }
+section.tight { padding: 1rem 0; }

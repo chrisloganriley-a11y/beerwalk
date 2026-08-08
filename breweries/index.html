@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Breweries — walk.beer</title>
+<meta name="description" content="Every brewery, cidery, and taproom Riley &amp; Friends Beer Walk has visited across Fishtown and Kensington, Philadelphia — mapped and rated on the Momentum Scale.">
+<link rel="canonical" href="https://walk.beer/breweries/">
+<meta property="og:title" content="The Breweries — walk.beer">
+<meta property="og:description" content="Every stop we've made, mapped and rated on the Momentum Scale.">
+<meta property="og:url" content="https://walk.beer/breweries/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="/">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="5" cy="25" r="1.4" fill="currentColor"/>
+        <circle cx="9.5" cy="21.5" r="1.4" fill="currentColor"/>
+        <circle cx="14" cy="18" r="1.4" fill="currentColor"/>
+        <path d="M18 10H27L25.3 25.5C25.15 26.8 24.05 27.8 22.7 27.8H22.3C20.95 27.8 19.85 26.8 19.7 25.5L18 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M17.6 7H27.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M18.4 14H26.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+      </svg>
+      <span class="wordmark-text">
+        <strong>walk<span class="dot">.</span>beer</strong>
+        <span>Riley &amp; Friends Beer Walk</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/walks/">Walks</a>
+      <a href="/breweries/" aria-current="page">Breweries</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="prose">
+      <p class="eyebrow">Two years, thirteen stops</p>
+      <h1>The Breweries</h1>
+      <p class="lede">Every place we've hit across both walks, in one list. Ratings use our own scale — the <strong>Momentum Scale</strong> — because "was the beer good" only tells you half of whether a stop worked.</p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="container">
+      <h2>The Momentum Scale</h2>
+      <p style="color: var(--ink-soft); max-width: var(--max-read);">Not a star rating. A rating of how each stop affects the pace of the walk — because on a route with twelve more stops to go, that matters as much as the beer.</p>
+      <div class="tier-key">
+        <span class="tier tier-sprint">Sprint</span>
+        <span class="tier tier-run">Run</span>
+        <span class="tier tier-walk">Walk</span>
+        <span class="tier tier-crawl">Crawl</span>
+      </div>
+      <div class="grid grid-2" style="margin-bottom: 1rem;">
+        <div><strong>Sprint</strong> — Itinerary-breaking. Good enough to abandon the schedule and just stay.</div>
+        <div><strong>Run</strong> — The ideal pace-setter. One drink, good vibes, back on schedule.</div>
+        <div><strong>Walk</strong> — Fine. Utilitarian. One quick pour, use the bathroom, move on.</div>
+        <div><strong>Crawl</strong> — Momentum killer. Slow service, packed, no seats — threatens the whole day.</div>
+      </div>
+      <p style="color: var(--ink-faint); font-size: 0.9rem;">Ratings are added by hand as we get around to writing them up — unrated stops just haven't been logged yet, not judged.</p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="container">
+      <div class="map-wrap">
+        <div id="brewery-map"></div>
+        <noscript><p class="map-fallback">The map needs JavaScript to load. The full list below has every stop, address, and neighborhood.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Every stop</h2>
+      <ul class="brewery-list">
+
+        <li class="brewery-item" id="brewery-ars">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Brewery ARS</h3>
+            <p class="neighborhood">Brewery · Fishtown · 2223 Frankford Ave</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2026</div>
+        </li>
+
+        <li class="brewery-item" id="evil-genius">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Evil Genius Beer Co.</h3>
+            <p class="neighborhood">Brewery · Fishtown · 1727 N Front St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2026</div>
+        </li>
+
+        <li class="brewery-item" id="fermentery-form">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Fermentery Form</h3>
+            <p class="neighborhood">Brewery · Kensington · 1700 N Palethorp St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2026</div>
+        </li>
+
+        <li class="brewery-item" id="forest-and-main">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Forest &amp; Main</h3>
+            <p class="neighborhood">Brewery · Fishtown · 1416 Frankford Ave</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2026</div>
+        </li>
+
+        <li class="brewery-item" id="frankford-hall">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Frankford Hall</h3>
+            <p class="neighborhood">Beer Garden · Fishtown · 1210 Frankford Ave</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025</div>
+        </li>
+
+        <li class="brewery-item" id="human-robot">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Human Robot</h3>
+            <p class="neighborhood">Brewery · Kensington · 1710 N 5th St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="lost-time-brewing">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Lost Time Brewing Co.</h3>
+            <p class="neighborhood">Brewery · Kensington · 2145 N Front St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="mural-city-cellars">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Mural City Cellars</h3>
+            <p class="neighborhood">Urban Winery · Fishtown · 1831 Frankford Ave</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="pips">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Pip's</h3>
+            <p class="neighborhood">Cider Bar · Fishtown · 1321 N Lee St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2026</div>
+        </li>
+
+        <li class="brewery-item" id="punch-buggy-brewing">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Punch Buggy Brewing Co.</h3>
+            <p class="neighborhood">Brewery · Kensington · 1445 N American St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="sacred-vice">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Sacred Vice Brewing Co.</h3>
+            <p class="neighborhood">Brewery · Kensington · 120 W Berks St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="st-oners">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>St. Oner's</h3>
+            <p class="neighborhood">Brewpub — a Tired Hands joint · Fishtown · 2218 Frankford Ave</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+        <li class="brewery-item" id="wissahickon-brewing">
+          <span class="tier" style="background:var(--ink-faint)">Not yet rated</span>
+          <div>
+            <h3>Wissahickon Brewing Co.</h3>
+            <p class="neighborhood">Brewery · Kensington · 1526 N American St</p>
+            <p class="blurb">Rating and notes coming soon.</p>
+          </div>
+          <div class="years">2025 &amp; 2026</div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025–2026 Riley &amp; Friends Beer Walk.</p>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/walks/">Walks</a>
+      <a href="/breweries/">Breweries</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/vendor/leaflet/leaflet.js"></script>
+<script src="/assets/js/breweries-data.js"></script>
+<script src="/assets/js/map.js"></script>
+</body>
+</html>
