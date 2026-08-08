@@ -209,6 +209,20 @@ placeholder "Not yet rated" — Chris will supply real Momentum tiers and
 blurbs later (edit `assets/js/breweries-data.js` and the matching `<li>`
 in `breweries/index.html`).
 
+**Correction during rollout:** the first deploy assumed GitHub Pages was
+serving from a `gh-pages` branch built by `.github/workflows/deploy.yml`
+(that workflow existed, ran successfully, and DNS/CNAME all looked
+consistent with it). It wasn't — Pages was actually configured to build
+straight from the `main` branch root via Jekyll, and that workflow/branch
+were dead infrastructure. Restructuring the repo into `/public` deleted
+the root `index.html` the real mechanism depended on, which took
+`walk.beer` down for a few minutes (it fell back to auto-rendering
+`README.md`). Fixed by moving the site back to the repo root and using
+`_config.yml`'s Jekyll `exclude` list to keep `SPEC.md`/`README.md` out of
+the published output instead, and removing the unused workflow. Lesson:
+verify the actual configured Pages source (Settings → Pages) before
+trusting what a workflow file implies.
+
 ## 13. Not yet built — next round
 
 - **A "Research" page** — Chris's own musings on what to add for next

@@ -11,21 +11,24 @@ accounts. See [`SPEC.md`](SPEC.md) for the full product spec.
 
 ## Structure
 
-Only `/public` is deployed. Everything else (this file, `SPEC.md`, the
-GitHub Actions workflow) stays out of the live site.
+Everything at the repo root is the live site — GitHub Pages builds and
+serves this repo's `main` branch directly via its built-in Jekyll. None of
+our HTML has front matter, so Jekyll passes it through unmodified; it's
+only used here to honor `_config.yml`'s `exclude` list, which keeps this
+file and `SPEC.md` out of the published output.
 
 ```
-public/
-  index.html          Home
-  walks/               Index of every walk
-  walks/2025/          The Inaugural Walk
-  walks/2026/          The Second Annual Walk
-  breweries/           Every stop, mapped and rated
-  about/                Origin story
-  assets/css/          Shared stylesheet
-  assets/js/            Brewery data + map behavior
-  assets/vendor/leaflet/  Self-hosted Leaflet (map library)
-  robots.txt, sitemap.xml
+index.html          Home
+walks/               Index of every walk
+walks/2025/          The Inaugural Walk
+walks/2026/          The Second Annual Walk
+breweries/           Every stop, mapped and rated
+about/                Origin story
+assets/css/          Shared stylesheet
+assets/js/            Brewery data + map behavior
+assets/vendor/leaflet/  Self-hosted Leaflet (map library)
+robots.txt, sitemap.xml
+_config.yml           Jekyll build-exclude list (SPEC.md, this file)
 ```
 
 No build step, no framework — static HTML/CSS with a small amount of
@@ -35,16 +38,19 @@ library itself, is self-hosted — no third-party analytics or trackers.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which publishes
-`/public` to the `gh-pages` branch. GitHub Pages serves that branch at the
-custom domain `walk.beer` (DNS + CNAME already configured).
+Pushing to `main` is the deploy — GitHub Pages rebuilds straight from the
+branch (Settings → Pages → source is "Deploy from a branch: main"). No
+Actions workflow is involved; there was one (`.github/workflows/deploy.yml`)
+but it pushed to an unused `gh-pages` branch that Pages was never actually
+configured to read from, so it's been removed rather than left as
+misleading dead infrastructure. DNS + custom domain (`walk.beer`) are
+already configured; see `SPEC.md` for the HTTPS cert status.
 
 ## Adding a new year's walk
 
-1. Add `public/walks/YYYY/index.html` (copy an existing year as a
-   starting point).
-2. Add its stops to `public/breweries/index.html` and
-   `public/assets/js/breweries-data.js` (new entries, or add the year to
-   an existing brewery's `years` list).
-3. Add the new walk to `public/walks/index.html` and the homepage.
-4. Add its URL to `public/sitemap.xml`.
+1. Add `walks/YYYY/index.html` (copy an existing year as a starting point).
+2. Add its stops to `breweries/index.html` and
+   `assets/js/breweries-data.js` (new entries, or add the year to an
+   existing brewery's `years` list).
+3. Add the new walk to `walks/index.html` and the homepage.
+4. Add its URL to `sitemap.xml`.

@@ -1,0 +1,8 @@
+# GitHub Pages builds this repo with Jekyll from the main branch root.
+# Everything here except this exclude list gets published as-is — none
+# of our HTML has front matter, so Jekyll passes it through untouched.
+exclude:
+  - SPEC.md
+  - README.md
+  - _config.yml
+  - .github
