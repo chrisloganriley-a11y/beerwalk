@@ -34,14 +34,17 @@
   var bounds = [];
 
   BREWERIES.forEach(function (b) {
-    var marker = L.marker([b.lat, b.lon], { icon: pinIcon(b.tier), title: b.name }).addTo(map);
+    var latest = b.reviews && b.reviews.length ? b.reviews[b.reviews.length - 1] : null;
+    var tier = latest ? latest.tier : null;
+
+    var marker = L.marker([b.lat, b.lon], { icon: pinIcon(tier), title: b.name }).addTo(map);
     bounds.push([b.lat, b.lon]);
 
-    var tierHtml = b.tier
-      ? '<span class="tier tier-' + b.tier + '">' + TIER_LABEL[b.tier] + "</span>"
+    var tierHtml = tier
+      ? '<span class="tier tier-' + tier + '">' + TIER_LABEL[tier] + "</span>"
       : '<span class="tier" style="background:var(--ink-faint)">Not yet rated</span>';
 
-    var blurbHtml = '<p class="popup-blurb">' + (b.blurb || "Rating coming soon.") + "</p>";
+    var blurbHtml = '<p class="popup-blurb">' + (latest ? latest.note : "Rating coming soon.") + "</p>";
 
     marker.bindPopup(
       '<div class="popup-tier">' + tierHtml + "</div>" +

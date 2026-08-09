@@ -204,10 +204,30 @@ title/description/OG/Twitter tags get rewritten to match reality. Fix
 ## 12. v1 build — shipped
 
 Home, `/walks/`, `/walks/2025/`, `/walks/2026/`, `/breweries/` (with the
-Leaflet/OSM cartoon map), `/about/` are live. All 13 rollup entries are
-placeholder "Not yet rated" — Chris will supply real Momentum tiers and
-blurbs later (edit `assets/js/breweries-data.js` and the matching `<li>`
-in `breweries/index.html`).
+Leaflet/OSM cartoon map), `/about/` are live.
+
+**Ratings, round one:** 10 of 13 stops have real Momentum reviews from
+Chris (Human Robot, Fermentery Form, Wissahickon, Punch Buggy, Sacred
+Vice, Lost Time, Evil Genius, Pip's, Forest & Main, Mural City Cellars).
+Brewery ARS, St. Oner's, and Frankford Hall are still "Not yet rated."
+Data model: each brewery in `assets/js/breweries-data.js` holds a
+`reviews` array (not a single rating), so a new visit just appends a new
+`{label, tier, note}` entry instead of overwriting the last one — both
+the map and the rollup page badge use the latest entry. The matching
+`<li>` markup lives in `breweries/index.html` (kept as hand-written HTML,
+not rendered from the JS data, so content stays visible without
+JavaScript).
+
+**Per-walk route maps:** each `/walks/YYYY/` page now has a real map of
+that year's route (replacing the "group photo" placeholder) — numbered
+pins in visit order, connected by an actual walking path. No GPS track
+exists for either walk, so the path is computed via OSRM's public
+foot-routing API over OpenStreetMap's street network between consecutive
+stops, in visited order; the page says so explicitly (`.map-caveat`) so
+it's never mistaken for a recorded track. Distance (2025: ~4.0 mi, 2026:
+~4.6 mi) comes from that same computed route and is now a stat on each
+page. Geometry is pre-fetched and baked into `assets/js/routes-data.js` —
+no live routing calls happen on page load.
 
 **Correction during rollout:** the first deploy assumed GitHub Pages was
 serving from a `gh-pages` branch built by `.github/workflows/deploy.yml`

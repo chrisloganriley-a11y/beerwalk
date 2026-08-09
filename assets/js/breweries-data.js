@@ -1,6 +1,11 @@
 /* Shared brewery/venue data — used by the map on /breweries/.
-   Momentum ratings are authored by hand, not computed. Anything marked
-   tier: null hasn't been rated yet. */
+   Momentum ratings are authored by hand, not computed.
+
+   Each brewery holds a `reviews` array instead of one fixed rating, so a
+   new review can just be appended (e.g. after next year's walk) without
+   overwriting the last one. `reviews` is ordered oldest -> newest; the
+   map and the "latest" badge both use the LAST entry. Empty array means
+   not yet rated. */
 
 const BREWERIES = [
   {
@@ -11,8 +16,13 @@ const BREWERIES = [
     address: "1710 N 5th St",
     lat: 39.9773032, lon: -75.1435877,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "sprint",
+        note: "We've started the walk here both years — best lagers in Philly, by far. The Milk Tubes are a must. It's easy to get ahead of yourself because the beers are that good. Great vibes, and an amazing start to the day. Whenever anyone asks me what beer to try, Human Robot is the first name I bring up."
+      }
+    ]
   },
   {
     slug: "fermentery-form",
@@ -22,8 +32,13 @@ const BREWERIES = [
     address: "1700 N Palethorp St",
     lat: 39.9709169, lon: -75.1386766,
     years: [2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "sprint",
+        note: "Awesome beer, great ambiance — feels like a back-alley bar in Belgium. Since it's a blendery and mostly farmhouse ales, it can't be a late stop, but starting here or hitting it early is a great way to cool off and check out all the barrels. Grab a bottle of Lofi or Petite and your group is good to go."
+      }
+    ]
   },
   {
     slug: "wissahickon-brewing",
@@ -33,8 +48,13 @@ const BREWERIES = [
     address: "1526 N American St",
     lat: 39.9746001, lon: -75.1402239,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "run",
+        note: "Great addition to American Street. The beers are okay, but the food comes out quick. You might have to fight through some dogs and babies in the fall, but midsummer on a Saturday it's smooth sailing. Grab some fries — helps you not die. In 2025 a few of us got bogged down by the alcoholic slushies. We avoided that mistake in 2026."
+      }
+    ]
   },
   {
     slug: "punch-buggy-brewing",
@@ -44,8 +64,13 @@ const BREWERIES = [
     address: "1445 N American St",
     lat: 39.9736447, lon: -75.1396225,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "The beers are nothing to write home about, but it's on the way to other places and makes a great space-filler. Nice outdoor area when it's not 100 degrees. They've also got a PS5 — one walker this year skipped the beer entirely and just chilled on the console."
+      }
+    ]
   },
   {
     slug: "sacred-vice",
@@ -55,8 +80,13 @@ const BREWERIES = [
     address: "120 W Berks St",
     lat: 39.9788463, lon: -75.1357282,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "run",
+        note: "Easy to grab a beer. The lagers are pretty good — not as good as Human Robot, but the venue is awesome: vintage decor with a great wooden bar and plenty of taps. In 2026 we got there early and it was easy in and out. Get there later on a Saturday and it'll get busy, and potentially loud depending on who's spinning the vinyl — we found that out in 2025."
+      }
+    ]
   },
   {
     slug: "lost-time-brewing",
@@ -66,8 +96,13 @@ const BREWERIES = [
     address: "2145 N Front St",
     lat: 39.9828129, lon: -75.1324732,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "Mikey's Gym. Grab the lager, or if you're feeling frisky, get the sour (not a big fan myself). In 2026 a walker grabbed a random stromboli from a vendor outside. Easy in and out. Not a big fan of dogs in the establishment, but overall a positive experience — a great neighborhood spot to spend some quality time."
+      }
+    ]
   },
   {
     slug: "brewery-ars",
@@ -77,8 +112,7 @@ const BREWERIES = [
     address: "2223 Frankford Ave",
     lat: 39.9799544, lon: -75.1288064,
     years: [2026],
-    tier: null,
-    blurb: ""
+    reviews: []
   },
   {
     slug: "st-oners",
@@ -88,8 +122,7 @@ const BREWERIES = [
     address: "2218 Frankford Ave",
     lat: 39.9801503, lon: -75.1292107,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: []
   },
   {
     slug: "evil-genius",
@@ -99,8 +132,13 @@ const BREWERIES = [
     address: "1727 N Front St",
     lat: 39.9757484, lon: -75.1338733,
     years: [2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "Beers are just okay. The inside is large — a great filler stop with outdoor seating too. Everyone can find a seat. One beer and move on."
+      }
+    ]
   },
   {
     slug: "pips",
@@ -110,8 +148,13 @@ const BREWERIES = [
     address: "1321 N Lee St",
     lat: 39.9707343, lon: -75.1349985,
     years: [2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "New for 2026. Great vibes, but it's down near Frankford, which means it gets busy with cool people. The free pool table must pull folks in from the street. They're friends with Human Robot — one of the few places outside the taproom where you can get it on draft, not just in a can. They've also got some pretty cool funk ciders. Watch out, though: some of the drinks are high ABV, and in 2026 we got there later in the night, so it was hopping."
+      }
+    ]
   },
   {
     slug: "forest-and-main",
@@ -121,8 +164,13 @@ const BREWERIES = [
     address: "1416 Frankford Ave",
     lat: 39.9723900, lon: -75.1349025,
     years: [2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "New for 2026 — the beers are really good. Can get busy, and it's hard to find a seat later at night. The pub lager is the move on the walk. I love their farmhouse ales, but stay away from those while walking — they'll slow you down. We ended up getting food here to stay alive."
+      }
+    ]
   },
   {
     slug: "mural-city-cellars",
@@ -132,8 +180,13 @@ const BREWERIES = [
     address: "1831 Frankford Ave",
     lat: 39.9775855, lon: -75.1310006,
     years: [2025, 2026],
-    tier: null,
-    blurb: ""
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "crawl",
+        note: "We've come here both years, and both times we probably didn't need to end up here so close to the end of the walk. After drinking all day, arriving at a winery doesn't feel like an oasis — it feels like dread, because at that point you need water more than you need more fermented grapes."
+      }
+    ]
   },
   {
     slug: "frankford-hall",
@@ -143,7 +196,6 @@ const BREWERIES = [
     address: "1210 Frankford Ave",
     lat: 39.9694850, lon: -75.1346830,
     years: [2025],
-    tier: null,
-    blurb: ""
+    reviews: []
   }
 ];
