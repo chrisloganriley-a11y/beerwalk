@@ -5,7 +5,11 @@
    new review can just be appended (e.g. after next year's walk) without
    overwriting the last one. `reviews` is ordered oldest -> newest; the
    map and the "latest" badge both use the LAST entry. Empty array means
-   not yet rated. */
+   not yet rated.
+
+   `links` holds outbound references (website, Untappd, BeerAdvocate) —
+   any field can be omitted if that venue doesn't have one (e.g. a
+   winery or cider bar won't have a BeerAdvocate profile). */
 
 const BREWERIES = [
   {
@@ -16,6 +20,11 @@ const BREWERIES = [
     address: "1710 N 5th St",
     lat: 39.9773032, lon: -75.1435877,
     years: [2025, 2026],
+    links: {
+      website: "https://www.humanrobotbeer.com/",
+      untappd: "https://untappd.com/HumanRobot",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/58686/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -32,6 +41,11 @@ const BREWERIES = [
     address: "1700 N Palethorp St",
     lat: 39.9709169, lon: -75.1386766,
     years: [2026],
+    links: {
+      website: "https://www.fermenteryform.com/",
+      untappd: "https://untappd.com/FermenteryForm",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/50398/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -48,6 +62,11 @@ const BREWERIES = [
     address: "1526 N American St",
     lat: 39.9746001, lon: -75.1402239,
     years: [2025, 2026],
+    links: {
+      website: "https://www.wissahickonbrew.com/",
+      untappd: "https://untappd.com/WissahickonBrewingCo",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/48558/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -64,6 +83,11 @@ const BREWERIES = [
     address: "1445 N American St",
     lat: 39.9736447, lon: -75.1396225,
     years: [2025, 2026],
+    links: {
+      website: "https://punchbuggybrewing.com/",
+      untappd: "https://untappd.com/PunchBuggyBrewingCompany",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/60257/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -80,6 +104,11 @@ const BREWERIES = [
     address: "120 W Berks St",
     lat: 39.9788463, lon: -75.1357282,
     years: [2025, 2026],
+    links: {
+      website: "https://sacredvice.com/",
+      untappd: "https://untappd.com/SacredViceBrewing",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/56777/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -96,6 +125,11 @@ const BREWERIES = [
     address: "2145 N Front St",
     lat: 39.9828129, lon: -75.1324732,
     years: [2025, 2026],
+    links: {
+      website: "https://www.losttimebrewco.com/",
+      untappd: "https://untappd.com/LostTimeBrewingCo",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/68543/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -112,7 +146,18 @@ const BREWERIES = [
     address: "2223 Frankford Ave",
     lat: 39.9799544, lon: -75.1288064,
     years: [2026],
-    reviews: []
+    links: {
+      website: "https://www.breweryars.com/",
+      untappd: "https://untappd.com/w/brewery-ars/159823",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/69800/"
+    },
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "walk",
+        note: "The beers are okay — grab one and move on. Nice outdoor seating, and depending on the day they'll have food vendors. Nothing to think too hard about here."
+      }
+    ]
   },
   {
     slug: "st-oners",
@@ -122,7 +167,17 @@ const BREWERIES = [
     address: "2218 Frankford Ave",
     lat: 39.9801503, lon: -75.1292107,
     years: [2025, 2026],
-    reviews: []
+    links: {
+      website: "https://www.stonersfishtown.com/",
+      untappd: "https://untappd.com/v/st-oner-s/9856584"
+    },
+    reviews: [
+      {
+        label: "Through 2026",
+        tier: "run",
+        note: "The beers can be heavy, but you can find something lighter if you look. I'll stop in here when I'm feeling something hoppy or something fancy — not dissimilar to Forest & Main. They've also got food, which is life-giving on the walk, especially since this is early in the second route. Good service here."
+      }
+    ]
   },
   {
     slug: "evil-genius",
@@ -132,6 +187,11 @@ const BREWERIES = [
     address: "1727 N Front St",
     lat: 39.9757484, lon: -75.1338733,
     years: [2026],
+    links: {
+      website: "https://evilgeniusbeer.com/",
+      untappd: "https://untappd.com/evilgeniusbeer",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/29022/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -148,6 +208,10 @@ const BREWERIES = [
     address: "1321 N Lee St",
     lat: 39.9707343, lon: -75.1349985,
     years: [2026],
+    links: {
+      website: "https://www.instagram.com/pipsbyploughman/",
+      untappd: "https://untappd.com/v/pip-s-a-bar-by-ploughman-cider-co/13715103"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -164,6 +228,11 @@ const BREWERIES = [
     address: "1416 Frankford Ave",
     lat: 39.9723900, lon: -75.1349025,
     years: [2026],
+    links: {
+      website: "https://forestandmain.com/",
+      untappd: "https://untappd.com/forestandmain",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/65170/"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -180,6 +249,10 @@ const BREWERIES = [
     address: "1831 Frankford Ave",
     lat: 39.9775855, lon: -75.1310006,
     years: [2025, 2026],
+    links: {
+      website: "https://www.muralcitycellars.com/",
+      untappd: "https://untappd.com/v/mural-city-cellars/12586885"
+    },
     reviews: [
       {
         label: "Through 2026",
@@ -196,6 +269,17 @@ const BREWERIES = [
     address: "1210 Frankford Ave",
     lat: 39.9694850, lon: -75.1346830,
     years: [2025],
-    reviews: []
+    links: {
+      website: "https://frankfordhall.com/",
+      untappd: "https://untappd.com/v/frankford-hall/51542",
+      beeradvocate: "https://www.beeradvocate.com/beer/profile/25632/"
+    },
+    reviews: [
+      {
+        label: "Through 2025",
+        tier: "walk",
+        note: "This was the final stop on the walk in 2025. Technically not a brewery, since they don't ferment their own beer, but it's a great place to grab a stein and chill outside around a bunch of younger people. Get a pretzel, get a liter of lager, and hope you can crawl home. Removed from the walk in 2026 — jury's out on whether we try it again next year."
+      }
+    ]
   }
 ];

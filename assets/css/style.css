@@ -412,6 +412,16 @@ hr.rule {
   margin: 0;
 }
 
+.ext-links {
+  font-size: 0.78rem;
+  margin: 0.5rem 0 0;
+}
+
+.ext-links a {
+  margin-right: 0.9rem;
+  color: var(--ink-soft);
+}
+
 .brewery-item .years {
   font-size: 0.75rem;
   color: var(--ink-faint);
