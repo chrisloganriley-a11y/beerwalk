@@ -262,3 +262,17 @@ Philly, i.e. real candidates for the route eventually growing past
 Fishtown/Kensington. No Momentum ratings here (that scale is specifically
 about walk-day pacing; these haven't been walk-tested). Added to primary
 nav and footer on every page, plus a third home page card.
+
+## 15. Brand mark — replaced
+
+The original wordmark icon (a dotted footpath leading into a separate
+beer-glass outline) asked people to parse two elements independently —
+Chris flagged he didn't find it legible. Replaced with a single merged
+shape: a tapered pint-glass body (narrow base, flared rim — a real
+shaker-pint taper, not a straight-sided "can," which an early pass got
+wrong and was corrected) topped with five toes sized big-to-small, so it
+reads as both a footprint and a glass in one silhouette instead of two.
+Iterated against real usage sizes (96px, 32px wordmark, 16px favicon,
+browser-tab mockup) before Chris signed off. Live in the wordmark on all
+7 pages and in `favicon.svg`; `.wordmark svg` in `style.css` changed from
+30×30 to 24×35 to fit the new taller proportions.
