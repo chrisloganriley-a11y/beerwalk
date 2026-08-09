@@ -245,13 +245,20 @@ trusting what a workflow file implies.
 
 ## 13. Not yet built — next round
 
-- **A "Research" page** — Chris's own musings on what to add for next
-  year's walk (candidate breweries, route ideas, logistics notes). Not
-  scoped yet: is this a public blog-style page like the others, or more
-  of a running/informal notes page? Decide voice and structure before
-  building.
-- **Outbound links per brewery** — on the `/breweries/` rollup, link out
-  to (a) each brewery's own website and (b) its Untappd and/or
-  BeerAdvocate page, so a visitor has context beyond our one-line blurb.
-  Needs the actual URLs gathered per venue (13 of them) before this can
-  be built — can source these the same way the addresses were verified.
+- **Outbound links per brewery** — on the `/breweries/` rollup (and
+  possibly `/research/`), link out to (a) each brewery's own website and
+  (b) its Untappd and/or BeerAdvocate page. Needs the actual URLs
+  gathered per venue before this can be built — same verification
+  approach as the addresses.
+
+## 14. `/research/` — shipped
+
+Turned out to be concrete, not abstract: a list of 10 real breweries
+Chris has been to on his own that haven't made it onto an official walk
+(Carbon Copy, Future Days, Love City, Meyers, Other Half, Philadelphia
+Brewing Co., Source, Triple Bottom, Urban Village, Yards) — all verified
+addresses/neighborhoods, several in Northern Liberties/Callowhill/West
+Philly, i.e. real candidates for the route eventually growing past
+Fishtown/Kensington. No Momentum ratings here (that scale is specifically
+about walk-day pacing; these haven't been walk-tested). Added to primary
+nav and footer on every page, plus a third home page card.
