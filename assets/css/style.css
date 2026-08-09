@@ -165,8 +165,8 @@ hr.rule {
 .wordmark:hover { text-decoration: none; }
 
 .wordmark svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 35px;
   flex: none;
   color: var(--accent);
 }
