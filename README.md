@@ -24,9 +24,11 @@ walks/2025/          The Inaugural Walk
 walks/2026/          The Second Annual Walk
 breweries/           Every stop, mapped and rated
 about/                Origin story
-assets/css/          Shared stylesheet
-assets/js/            Brewery data + map behavior
-assets/vendor/leaflet/  Self-hosted Leaflet (map library)
+assets/css/          Shared stylesheet (cobalt + lager-gold design system)
+assets/js/            Brewery/route data, maps, Momentum filter, reveals
+assets/fonts/         Self-hosted Bebas Neue + EB Garamond (OFL, licences alongside)
+assets/img/           Archival/open-licence pictures + credits.json
+assets/vendor/leaflet/  Self-hosted Leaflet 1.9.4 (map library)
 robots.txt, sitemap.xml
 _config.yml           Jekyll build-exclude list (SPEC.md, this file)
 ```
@@ -35,6 +37,25 @@ No build step, no framework — static HTML/CSS with a small amount of
 vanilla JS for the map. Map tiles load from OpenStreetMap's public tile
 servers (free, no API key); everything else, including the Leaflet
 library itself, is self-hosted — no third-party analytics or trackers.
+
+## Security
+
+Every page carries a Content-Security-Policy `<meta>` tag (GitHub Pages
+can't set response headers). It allows scripts, styles and fonts from
+this site only, images from this site plus `tile.openstreetmap.org`, and
+one frame source, `www.youtube-nocookie.com`, for the click-to-play El
+video on the home page. Keep it working when editing:
+
+- No inline `<script>` or `style="…"` attributes — they'll be blocked.
+  Put CSS in `style.css` and JS in `assets/js/`.
+- Build map popups and other dynamic text with `textContent`, not HTML
+  strings.
+- Outbound links use `target="_blank" rel="noopener noreferrer"`.
+- New third-party sources need a deliberate CSP change on every page.
+
+Pictures are open-licensed (public domain, CC0, CC BY, CC BY-SA) and
+credited in every page's footer; the source record is
+`assets/img/credits.json`.
 
 ## Deployment
 

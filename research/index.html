@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Research — walk.beer</title>
 <meta name="description" content="Real breweries, cideries, and taprooms around Philadelphia that Chris has been to on his own but haven't made it onto a walk yet — candidates for next year's route.">
 <link rel="canonical" href="https://walk.beer/research/">
@@ -11,160 +13,92 @@
 <meta property="og:url" content="https://walk.beer/research/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0034eb">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/head.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container">
-    <a class="wordmark" href="/">
-      <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
-        <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
-        <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
-        <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
-        <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
-        <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
-      </svg>
-      <span class="wordmark-text">
-        <strong>walk<span class="dot">.</span>beer</strong>
-        <span>Riley &amp; Friends Beer Walk</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/walks/">Walks</a>
-      <a href="/breweries/">Breweries</a>
-      <a href="/research/" aria-current="page">Research</a>
-      <a href="/about/">About</a>
-    </nav>
-  </div>
+<header class="site-header" id="top">
+  <a class="wordmark" href="/">
+    <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
+      <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
+      <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
+      <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
+      <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
+      <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
+    </svg>
+    <span>walk<span class="dot">.</span>beer</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/walks/">Walks</a>
+    <a href="/breweries/">Breweries</a>
+    <a href="/research/" aria-current="page">Research</a>
+    <a href="/about/">About</a>
+  </nav>
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="prose">
-      <p class="eyebrow">On the Radar</p>
-      <h1>Places I've Been, Walk Hasn't</h1>
-      <p class="lede">The route has to stay walkable in a day, so not everywhere I drink makes the cut in a given year. These are real spots — places I've actually been to on my own — that are fair game for next year's loop, or whenever it expands. Not rated on the Momentum Scale; that's about pace during the walk itself, and none of these have been walk-tested yet.</p>
+<section class="wrap grid page-hero" aria-labelledby="research-title">
+    <div class="page-hero-text" data-stagger>
+      <h1 id="research-title" data-reveal>On the radar</h1>
+      <p class="lead" data-reveal>Places I’ve been to on my own that haven’t made a walk yet: fair game for next year’s loop, or whenever it grows.</p>
     </div>
+    <span class="photo shutter-load"><img src="/assets/img/graffiti-pier.jpg" width="1400" height="933" alt="Concrete arches covered in graffiti at Graffiti Pier on the Delaware River" decoding="async"></span>
   </section>
 
-  <section>
-    <div class="container">
-      <ul class="brewery-list">
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Carbon Copy</h3>
-              <p class="neighborhood">Brewery &amp; Winery · Cedar Park, West Philadelphia · 701 S 50th St</p>
-              <p class="ext-links"><a href="https://carboncopyphilly.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/Carbon_Copy" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/64453/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Future Days Beer Co.</h3>
-              <p class="neighborhood">Brewery · Northern Liberties · 433 Fairmount Ave</p>
-              <p class="ext-links"><a href="https://www.futuredaysbeer.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/FutureDaysBeerCompany" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/69866/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Love City Brewing</h3>
-              <p class="neighborhood">Brewery · Callowhill · 1023 Hamilton St</p>
-              <p class="ext-links"><a href="https://lovecitybrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/LoveCityBrewing" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/51845/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Meyers Brewing Company</h3>
-              <p class="neighborhood">Brewery · Fishtown · 436 E Girard Ave</p>
-              <p class="ext-links"><a href="https://www.meyersbrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/Meyers_Brewing_Company" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63649/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Other Half Brewing</h3>
-              <p class="neighborhood">Brewery · Fishtown · 1002 Canal St</p>
-              <p class="ext-links"><a href="https://otherhalfbrewing.com/location/philadelphia/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/v/other-half-brewing-philly/10951798" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63997/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Philadelphia Brewing Company</h3>
-              <p class="neighborhood">Brewery · East Kensington · 2440 Frankford Ave</p>
-              <p class="ext-links"><a href="https://philadelphiabrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/philadelphiabrewing" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/16206/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Source Brewing</h3>
-              <p class="neighborhood">Brewery · Fishtown · 1101 Frankford Ave</p>
-              <p class="ext-links"><a href="https://www.sourcebrewing.com/location/source-urban-brewing-philadelphia/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/Source_Brewing" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63144/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Triple Bottom Brewing</h3>
-              <p class="neighborhood">Brewery · Spring Garden · 915 Spring Garden St</p>
-              <p class="ext-links"><a href="https://triplebottombrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/TripleBottomBrewing" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/57376/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Urban Village Brewing</h3>
-              <p class="neighborhood">Brewery · Northern Liberties · 1001 N 2nd St</p>
-              <p class="ext-links"><a href="https://www.urbanvillagebrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/UrbanVillageBrewingCompany" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/47787/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-        <li class="brewery-item">
-          <div class="brewery-item-head">
-            <div>
-              <h3>Yards Brewing Company</h3>
-              <p class="neighborhood">Brewery · Northern Liberties · 500 Spring Garden St</p>
-              <p class="ext-links"><a href="https://yardsbrewing.com/" target="_blank" rel="noopener">Website</a><a href="https://untappd.com/YardsBrewing" target="_blank" rel="noopener">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/450/" target="_blank" rel="noopener">BeerAdvocate</a></p>
-            </div>
-          </div>
-        </li>
-
-      </ul>
-
-      <hr class="rule">
-      <p><a href="/breweries/">See the stops that have made a walk →</a></p>
+  <section class="section wrap" aria-labelledby="list-title">
+    <div class="grid">
+      <h2 class="head table-head" id="list-title" data-reveal>Ten candidates for the route</h2>
+      <div class="table-side">
+        <figure data-reveal>
+        <span class="photo is-print"><img src="/assets/img/kensington-map-1820.jpg" width="1010" height="703" alt="Hand-drawn 1820 map of the streets and landowners of Kensington" loading="lazy" decoding="async"></span>
+        <figcaption>Kensington, hand-drawn in 1820</figcaption>
+      </figure>
+        <figure data-reveal>
+        <span class="photo "><img src="/assets/img/berks-street.jpg" width="1400" height="821" alt="Brick rowhouses and bare trees along Berks Street in Fishtown" loading="lazy" decoding="async"></span>
+        <figcaption>Berks Street, Fishtown</figcaption>
+      </figure>
+        <figure data-reveal>
+        <span class="photo "><img src="/assets/img/beach-street-1913.jpg" width="1400" height="1113" alt="Steel framing going up for the El's Beach Street power house in 1913" loading="lazy" decoding="async"></span>
+        <figcaption>The El’s Beach Street power house going up, 1913</figcaption>
+      </figure>
+      </div>
+      <div class="table-body">
+        <p data-reveal>The route has to stay walkable in a day, so not everywhere I drink makes the cut. Several of these sit in Northern Liberties, Callowhill and West Philly, past the edge of the usual loop. No Momentum ratings here: that scale is about pace on the day, and none of these have been walk-tested yet.</p>
+        <ul class="rows research-rows" data-stagger>
+          <li class="row" data-reveal><span class="row-kind muted small">Cedar Park, West Philadelphia</span><a class="row-name" href="https://carboncopyphilly.com/" target="_blank" rel="noopener noreferrer">Carbon Copy</a><span class="row-meta">701 S 50th St</span><span class="row-links"><span class="muted">Brewery &amp; Winery</span><a href="https://untappd.com/Carbon_Copy" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/64453/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Northern Liberties</span><a class="row-name" href="https://www.futuredaysbeer.com/" target="_blank" rel="noopener noreferrer">Future Days Beer Co.</a><span class="row-meta">433 Fairmount Ave</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/FutureDaysBeerCompany" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/69866/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Callowhill</span><a class="row-name" href="https://lovecitybrewing.com/" target="_blank" rel="noopener noreferrer">Love City Brewing</a><span class="row-meta">1023 Hamilton St</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/LoveCityBrewing" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/51845/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Fishtown</span><a class="row-name" href="https://www.meyersbrewing.com/" target="_blank" rel="noopener noreferrer">Meyers Brewing Company</a><span class="row-meta">436 E Girard Ave</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/Meyers_Brewing_Company" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63649/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Fishtown</span><a class="row-name" href="https://otherhalfbrewing.com/location/philadelphia/" target="_blank" rel="noopener noreferrer">Other Half Brewing</a><span class="row-meta">1002 Canal St</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/v/other-half-brewing-philly/10951798" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63997/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">East Kensington</span><a class="row-name" href="https://philadelphiabrewing.com/" target="_blank" rel="noopener noreferrer">Philadelphia Brewing Company</a><span class="row-meta">2440 Frankford Ave</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/philadelphiabrewing" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/16206/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Fishtown</span><a class="row-name" href="https://www.sourcebrewing.com/location/source-urban-brewing-philadelphia/" target="_blank" rel="noopener noreferrer">Source Brewing</a><span class="row-meta">1101 Frankford Ave</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/Source_Brewing" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/63144/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Spring Garden</span><a class="row-name" href="https://triplebottombrewing.com/" target="_blank" rel="noopener noreferrer">Triple Bottom Brewing</a><span class="row-meta">915 Spring Garden St</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/TripleBottomBrewing" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/57376/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Northern Liberties</span><a class="row-name" href="https://www.urbanvillagebrewing.com/" target="_blank" rel="noopener noreferrer">Urban Village Brewing</a><span class="row-meta">1001 N 2nd St</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/UrbanVillageBrewingCompany" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/47787/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+          <li class="row" data-reveal><span class="row-kind muted small">Northern Liberties</span><a class="row-name" href="https://yardsbrewing.com/" target="_blank" rel="noopener noreferrer">Yards Brewing Company</a><span class="row-meta">500 Spring Garden St</span><span class="row-links"><span class="muted">Brewery</span><a href="https://untappd.com/YardsBrewing" target="_blank" rel="noopener noreferrer">Untappd</a><a href="https://www.beeradvocate.com/beer/profile/450/" target="_blank" rel="noopener noreferrer">BeerAdvocate</a></span></li>
+        </ul>
+        <a class="more" href="/breweries/">The stops that made a walk &rarr;</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2025–2026 Riley &amp; Friends Beer Walk.</p>
+  <div class="footer-top">
+    <div class="footer-notes">
+      <span>Riley &amp; Friends Beer Walk</span>
+      <span>Fishtown &amp; Kensington, Philadelphia</span>
+      <span>One day every summer, since 2025</span>
+    </div>
+    <a href="#top">Back to top</a>
+  </div>
+  <a class="footer-line" href="/walks/">See you in 2027</a>
+  <div class="footer-meta">
     <nav aria-label="Footer">
       <a href="/">Home</a>
       <a href="/walks/">Walks</a>
@@ -172,7 +106,22 @@
       <a href="/research/">Research</a>
       <a href="/about/">About</a>
     </nav>
+    <details class="credits">
+      <summary>Picture credits</summary>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Market-Frankford_line_on_Kensington_Avenue_in_Philadelphia.jpg" rel="noopener noreferrer">“Market-Frankford line on Kensington Avenue in Philadelphia”</a> by Dasprevailz, public domain, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown_Philadelphia.jpg" rel="noopener noreferrer">“Fishtown Philadelphia”</a> (Berks Street) by Tim Kiser, <a href="https://creativecommons.org/licenses/by-sa/2.5" rel="noopener noreferrer">CC BY-SA 2.5</a>, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown,_Philadelphia,_United_States_(Unsplash).jpg" rel="noopener noreferrer">“Fishtown, Philadelphia, United States”</a> by Ashim D’Silva, CC0, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Frankford_EL_Construction,_1913,_Beach_Street_Power_House_(8110273082).jpg" rel="noopener noreferrer">“Frankford EL Construction, 1913, Beach Street Power House”</a> by Richard from USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener noreferrer">CC BY 2.0</a>, via Wikimedia Commons.</li>
+        <li><a href="https://www.metmuseum.org/art/collection/search/335759" rel="noopener noreferrer">“Woman Carrying Beer Steins”</a> by F. Droimer, 1912, public domain (CC0), The Metropolitan Museum of Art.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Manuscript_map_of_Kensington_in_Philadelphia._LOC_2018590114.jpg" rel="noopener noreferrer">“Manuscript map of Kensington in Philadelphia”</a> by George Gordon Meade, 1820, public domain, Library of Congress via Wikimedia Commons.</li>
+        <li>All pictures are cropped and shown in a blue duotone. Map data &copy; OpenStreetMap contributors.</li>
+      </ul>
+    </details>
+    <span class="place">Philadelphia, 2025–2026</span>
   </div>
 </footer>
+
+<script src="/assets/js/site.js"></script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Inaugural Walk (Jul 4, 2025) — walk.beer</title>
 <meta name="description" content="Where it started: eight stops through Fishtown and Kensington on the Fourth of July, 2025 — the first Riley &amp; Friends Beer Walk.">
 <link rel="canonical" href="https://walk.beer/walks/2025/">
@@ -11,88 +13,114 @@
 <meta property="og:url" content="https://walk.beer/walks/2025/">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0034eb">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/head.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container">
-    <a class="wordmark" href="/">
-      <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
-        <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
-        <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
-        <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
-        <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
-        <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
-      </svg>
-      <span class="wordmark-text">
-        <strong>walk<span class="dot">.</span>beer</strong>
-        <span>Riley &amp; Friends Beer Walk</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/walks/" aria-current="page">Walks</a>
-      <a href="/breweries/">Breweries</a>
-      <a href="/research/">Research</a>
-      <a href="/about/">About</a>
-    </nav>
-  </div>
+<header class="site-header" id="top">
+  <a class="wordmark" href="/">
+    <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
+      <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
+      <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
+      <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
+      <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
+      <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
+    </svg>
+    <span>walk<span class="dot">.</span>beer</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/walks/" aria-current="page">Walks</a>
+    <a href="/breweries/">Breweries</a>
+    <a href="/research/">Research</a>
+    <a href="/about/">About</a>
+  </nav>
 </header>
 
 <main id="main">
-  <article>
-    <section class="hero">
-      <div class="prose">
-        <p class="eyebrow">July 4, 2025</p>
-        <h1>The Inaugural Walk</h1>
+<article>
+    <section class="wrap grid page-hero" aria-labelledby="walk-title">
+      <div class="page-hero-text" data-stagger>
+        <h1 id="walk-title" data-reveal>The Inaugural Walk</h1>
+        <p class="lead" data-reveal>July 4, 2025. Eight stops through Fishtown and Kensington, starting at noon in the middle of a Philadelphia summer.</p>
+      </div>
+      <span class="photo shutter-load"><img src="/assets/img/el-kensington-ave.jpg" width="1024" height="768" alt="Kensington Avenue in the early morning, seen from underneath the elevated Market-Frankford train" decoding="async"></span>
+    </section>
+
+    <section class="section wrap" aria-labelledby="story-title">
+      <div class="grid story">
+        <div class="story-text" data-stagger>
+          <h2 class="head" id="story-title" data-reveal>Where it started</h2>
+          <p data-reveal>Fishtown has more than 20 breweries, cideries, and taprooms packed into a few square miles — reason enough, we decided, to celebrate it with a walk. On the Fourth of July, 2025, we set out at noon in the middle of a Philadelphia summer to see how much of it we could cover in a day.</p>
+          <p data-reveal>Turnout was great, and most of the group stuck it out for nearly the whole route. We finished the night with burgers at Johnny Brenda’s.</p>
+          <div class="figures">
+          <div data-reveal><span class="figure-value">8</span><span class="figure-label">Stops</span></div>
+        <div data-reveal><span class="figure-value">4.0 mi</span><span class="figure-label">Walked, roughly</span></div>
+        <div data-reveal><span class="figure-value">Noon</span><span class="figure-label">Started</span></div>
+        <div data-reveal><span class="figure-value">Burgers</span><span class="figure-label">Finished, at Johnny Brenda’s</span></div>
+          </div>
+        </div>
+        <figure class="story-figure" data-reveal>
+          <span class="photo drift"><img src="/assets/img/beach-street-1913.jpg" width="1400" height="1113" alt="Steel framing going up for the El's Beach Street power house in 1913" loading="lazy" decoding="async"></span>
+          <span class="photo is-print"><img src="/assets/img/kensington-map-1820.jpg" width="1010" height="703" alt="Hand-drawn 1820 map of the streets and landowners of Kensington" loading="lazy" decoding="async"></span>
+          <figcaption>The El’s Beach Street power house going up, 1913; Kensington, hand-drawn in 1820</figcaption>
+        </figure>
       </div>
     </section>
 
-    <div class="container">
-      <div class="map-wrap">
-        <div id="route-map" data-year="2025"></div>
-        <noscript><p class="map-fallback">The route map needs JavaScript to load — see the numbered stop list below.</p></noscript>
+    <section class="section wrap" aria-labelledby="route-title">
+      <div class="grid route-block">
+        <div class="route-frame is-wide" data-ui data-reveal>
+          <div class="route-map" id="route-map" data-year="2025" data-scrub="route-scrub" data-stops="stop-list" role="region" aria-label="Map of the 2025 walking route"></div>
+          <noscript><p class="map-fallback">The route map needs JavaScript. The numbered stop list has every stop in order.</p></noscript>
+          <p class="map-caveat">The path is computed between stops with OpenStreetMap walking directions, in the order we hit them. Not a recorded GPS track, but close.</p>
+        </div>
+        <div class="route-side">
+          <h2 id="route-title">The route</h2>
+          <div class="scrub" id="route-scrub" hidden>
+          <label for="route-scrub-input">Drag through the day</label>
+          <input type="range" id="route-scrub-input" step="1">
+          <div class="scrub-readout" aria-live="polite"></div>
+        </div>
+          <ol class="stops" id="stop-list">
+          <li><a class="stop-name" href="/breweries/#human-robot">Human Robot</a><span class="stop-note">Brewery · Kensington</span></li>
+          <li><a class="stop-name" href="/breweries/#wissahickon-brewing">Wissahickon Brewing Co.</a><span class="stop-note">Brewery · Kensington</span></li>
+          <li><a class="stop-name" href="/breweries/#sacred-vice">Sacred Vice Brewing Co.</a><span class="stop-note">Brewery · Kensington</span></li>
+          <li><a class="stop-name" href="/breweries/#punch-buggy-brewing">Punch Buggy Brewing Co.</a><span class="stop-note">Brewery · Kensington</span></li>
+          <li><a class="stop-name" href="/breweries/#lost-time-brewing">Lost Time Brewing Co.</a><span class="stop-note">Brewery · Kensington</span></li>
+          <li><a class="stop-name" href="/breweries/#st-oners">St. Oner's</a><span class="stop-note">Brewpub — a Tired Hands joint · Fishtown</span></li>
+          <li><a class="stop-name" href="/breweries/#mural-city-cellars">Mural City Cellars</a><span class="stop-note">Urban Winery · Fishtown</span></li>
+          <li><a class="stop-name" href="/breweries/#frankford-hall">Frankford Hall</a><span class="stop-note">Beer Garden · Fishtown — the finish line</span></li>
+          </ol>
+          <p class="small muted">Off the official list but essential: burgers at Johnny Brenda’s to close out the night.</p>
+        </div>
       </div>
-      <p class="map-caveat">Route is a walking path computed between stops via OpenStreetMap street routing, in the order we hit them — not a recorded GPS track, but close.</p>
-    </div>
+    </section>
 
-    <div class="prose">
-      <div class="stat-row">
-        <div class="stat"><div class="label">Stops</div><div class="value">8</div></div>
-        <div class="stat"><div class="label">Distance</div><div class="value">~4.0 mi</div></div>
-        <div class="stat"><div class="label">Started</div><div class="value">Noon</div></div>
-        <div class="stat"><div class="label">Finished</div><div class="value">Burgers, Johnny Brenda's</div></div>
-        <div class="stat"><div class="label">Ground covered</div><div class="value">Fishtown &amp; Kensington</div></div>
-      </div>
-
-      <p>Fishtown has more than 20 breweries, cideries, and taprooms packed into a few square miles — reason enough, we decided, to celebrate it with a walk. On the Fourth of July, 2025, we set out at noon in the middle of a Philadelphia summer to see how much of it we could cover in a day.</p>
-      <p>Turnout was great, and most of the group stuck it out for nearly the whole route. We finished the night with burgers at Johnny Brenda's.</p>
-
-      <h2>The route</h2>
-      <ol class="stop-list">
-        <li><span class="stop-name"><a href="/breweries/#human-robot">Human Robot</a></span><br><span class="stop-note">Brewery · Kensington</span></li>
-        <li><span class="stop-name"><a href="/breweries/#wissahickon-brewing">Wissahickon Brewing Co.</a></span><br><span class="stop-note">Brewery · Kensington</span></li>
-        <li><span class="stop-name"><a href="/breweries/#sacred-vice">Sacred Vice Brewing Co.</a></span><br><span class="stop-note">Brewery · Kensington</span></li>
-        <li><span class="stop-name"><a href="/breweries/#punch-buggy-brewing">Punch Buggy Brewing Co.</a></span><br><span class="stop-note">Brewery · Kensington</span></li>
-        <li><span class="stop-name"><a href="/breweries/#lost-time-brewing">Lost Time Brewing Co.</a></span><br><span class="stop-note">Brewery · Kensington</span></li>
-        <li><span class="stop-name"><a href="/breweries/#st-oners">St. Oner's</a></span><br><span class="stop-note">Brewpub — a Tired Hands joint · Fishtown</span></li>
-        <li><span class="stop-name"><a href="/breweries/#mural-city-cellars">Mural City Cellars</a></span><br><span class="stop-note">Urban Winery · Fishtown</span></li>
-        <li><span class="stop-name"><a href="/breweries/#frankford-hall">Frankford Hall</a></span><br><span class="stop-note">Beer Garden · Fishtown — the finish line</span></li>
-      </ol>
-      <p style="color: var(--ink-soft); font-size: 0.92rem;">Off the official list but essential: burgers at Johnny Brenda's to close out the night.</p>
-
-      <hr class="rule">
-      <p><a href="/walks/2026/">The Second Annual Walk (2026) →</a> · <a href="/breweries/">See every stop, rated →</a></p>
-    </div>
+    <nav class="section wrap pager" aria-label="More walks">
+      <a href="/walks/"><span class="pager-dir">&larr; All walks</span><span class="pager-title">The Walks</span></a>
+      <a href="/walks/2026/"><span class="pager-dir">Next walk &rarr;</span><span class="pager-title">The Second Annual Walk</span></a>
+    </nav>
   </article>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2025–2026 Riley &amp; Friends Beer Walk.</p>
+  <div class="footer-top">
+    <div class="footer-notes">
+      <span>Riley &amp; Friends Beer Walk</span>
+      <span>Fishtown &amp; Kensington, Philadelphia</span>
+      <span>One day every summer, since 2025</span>
+    </div>
+    <a href="#top">Back to top</a>
+  </div>
+  <a class="footer-line" href="/walks/">See you in 2027</a>
+  <div class="footer-meta">
     <nav aria-label="Footer">
       <a href="/">Home</a>
       <a href="/walks/">Walks</a>
@@ -100,6 +128,19 @@
       <a href="/research/">Research</a>
       <a href="/about/">About</a>
     </nav>
+    <details class="credits">
+      <summary>Picture credits</summary>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Market-Frankford_line_on_Kensington_Avenue_in_Philadelphia.jpg" rel="noopener noreferrer">“Market-Frankford line on Kensington Avenue in Philadelphia”</a> by Dasprevailz, public domain, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown_Philadelphia.jpg" rel="noopener noreferrer">“Fishtown Philadelphia”</a> (Berks Street) by Tim Kiser, <a href="https://creativecommons.org/licenses/by-sa/2.5" rel="noopener noreferrer">CC BY-SA 2.5</a>, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown,_Philadelphia,_United_States_(Unsplash).jpg" rel="noopener noreferrer">“Fishtown, Philadelphia, United States”</a> by Ashim D’Silva, CC0, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Frankford_EL_Construction,_1913,_Beach_Street_Power_House_(8110273082).jpg" rel="noopener noreferrer">“Frankford EL Construction, 1913, Beach Street Power House”</a> by Richard from USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener noreferrer">CC BY 2.0</a>, via Wikimedia Commons.</li>
+        <li><a href="https://www.metmuseum.org/art/collection/search/335759" rel="noopener noreferrer">“Woman Carrying Beer Steins”</a> by F. Droimer, 1912, public domain (CC0), The Metropolitan Museum of Art.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Manuscript_map_of_Kensington_in_Philadelphia._LOC_2018590114.jpg" rel="noopener noreferrer">“Manuscript map of Kensington in Philadelphia”</a> by George Gordon Meade, 1820, public domain, Library of Congress via Wikimedia Commons.</li>
+        <li>All pictures are cropped and shown in a blue duotone. Map data &copy; OpenStreetMap contributors.</li>
+      </ul>
+    </details>
+    <span class="place">Philadelphia, 2025–2026</span>
   </div>
 </footer>
 
@@ -107,5 +148,6 @@
 <script src="/assets/js/breweries-data.js"></script>
 <script src="/assets/js/routes-data.js"></script>
 <script src="/assets/js/route-map.js"></script>
+<script src="/assets/js/site.js"></script>
 </body>
 </html>

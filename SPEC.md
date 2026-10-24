@@ -276,3 +276,59 @@ Iterated against real usage sizes (96px, 32px wordmark, 16px favicon,
 browser-tab mockup) before Chris signed off. Live in the wordmark on all
 7 pages and in `favicon.svg`; `.wordmark svg` in `style.css` changed from
 30×30 to 24×35 to fit the new taller proportions.
+
+## 16. Security pass + redesign — shipped (Oct 24, 2026)
+
+**Security review.** No secrets in git history; self-hosted Leaflet
+verified byte-identical to the official 1.9.4 release. Changes:
+
+- Content-Security-Policy `<meta>` on every page: scripts, styles and
+  fonts from this site only; images from this site + `tile.openstreetmap.org`;
+  one frame source, `www.youtube-nocookie.com`. No inline scripts or
+  `style="…"` attributes anywhere (the `js` class is set by
+  `assets/js/head.js` instead of an inline script).
+- Map popups and route readouts built with `textContent`, not HTML
+  strings; tier values whitelisted before they reach pin markup.
+- Outbound links `rel="noopener noreferrer"`; explicit
+  `strict-origin-when-cross-origin` referrer policy (OSM's tile policy
+  needs a Referer, so not `no-referrer`).
+- Tiles moved to `tile.openstreetmap.org` (the `{s}.` subdomains are
+  deprecated).
+- **Still open (§9 follow-up):** HTTPS now works, but `http://walk.beer`
+  serves the page instead of redirecting — tick **Enforce HTTPS** in
+  Settings → Pages. Clickjacking protection and HSTS need response
+  headers, which GitHub Pages can't set; accepted as low risk.
+
+**Redesign** using the `design-taste-frontend` skill (Leonxlnx/taste-skill),
+with spring easing / staggered reveals / performance rules borrowed from
+`high-end-visual-design`. The two conflict (glass pill nav, pill
+eyebrows, hairline cards are required by one and banned by the other);
+`design-taste-frontend` won. Direction "the sentence is the layout"
+(seed 1210198030). Supersedes the §5 type/colour decisions:
+
+- Idea: the dot in walk.beer is a window onto the street — the home hero
+  reads WALK [photo of the El] BEER.
+- Palette: cobalt `#0034eb` (the El's Blue Line), white ink, lager-gold
+  `#e9e34a` accent on the action only. Favicon recoloured to match; the
+  footprint-pint mark shape is unchanged.
+- Type: Bebas Neue (display) + EB Garamond (text), self-hosted woff2 in
+  `assets/fonts/` with OFL licences — still no third-party font requests.
+- Live pieces: "drag through the day" slider on route maps (home + each
+  walk page) that walks the route stop by stop; on `/breweries/` the four
+  Momentum words are set at descending sizes and filter the map + list.
+- Pictures: six open-licence archival images (El on Kensington Ave, Berks
+  St, Graffiti Pier, Beach St power house 1913, 1820 Kensington map, 1912
+  beer-steins drawing), one blue duotone treatment, credited in every
+  footer and recorded in `assets/img/credits.json`. Stand-ins until our
+  own photos are cleared (§5).
+- Video: "Ride the El" on the home page — EO Transit Videos' full
+  Market-Frankford ride, click-to-load via youtube-nocookie with our own
+  photo as the poster; nothing contacts YouTube until play is pressed.
+  The one deliberate third-party exception besides OSM tiles. Swap the
+  `data-video` ID if a historical Fishtown clip turns up.
+- Walks index gained a "2027 — route to be decided" entry pointing at
+  `/research/`.
+- Checked with the skill's real-browser inspector at 1440/768/390: 0 FAIL
+  on all 7 pages. Remaining WARNs kept on purpose: Chris's own em-dashes
+  in reviews, the deliberate size ladder on the Momentum words, light-blue
+  secondary notes, no self-hosted footage.

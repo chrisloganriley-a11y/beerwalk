@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Walks — walk.beer</title>
 <meta name="description" content="Every Riley &amp; Friends Beer Walk, year by year — routes, stops, and stories.">
 <link rel="canonical" href="https://walk.beer/walks/">
@@ -11,68 +13,86 @@
 <meta property="og:url" content="https://walk.beer/walks/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0034eb">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/head.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container">
-    <a class="wordmark" href="/">
-      <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
-        <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
-        <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
-        <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
-        <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
-        <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
-      </svg>
-      <span class="wordmark-text">
-        <strong>walk<span class="dot">.</span>beer</strong>
-        <span>Riley &amp; Friends Beer Walk</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/walks/" aria-current="page">Walks</a>
-      <a href="/breweries/">Breweries</a>
-      <a href="/research/">Research</a>
-      <a href="/about/">About</a>
-    </nav>
-  </div>
+<header class="site-header" id="top">
+  <a class="wordmark" href="/">
+    <svg viewBox="0 0 44 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M18.5 60 L25.5 60 Q30 60 30.7 55.6 L36.3 19.4 Q37 15 32.5 15 L11.5 15 Q7 15 7.7 19.4 L13.3 55.6 Q14 60 18.5 60 Z" fill="currentColor"/>
+      <circle cx="10.5" cy="14.5" r="5.2" fill="currentColor"/>
+      <circle cx="17.5" cy="8" r="4.4" fill="currentColor"/>
+      <circle cx="24.5" cy="5.5" r="3.9" fill="currentColor"/>
+      <circle cx="31.5" cy="7.8" r="3.3" fill="currentColor"/>
+      <circle cx="37.5" cy="12.5" r="2.7" fill="currentColor"/>
+    </svg>
+    <span>walk<span class="dot">.</span>beer</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/walks/" aria-current="page">Walks</a>
+    <a href="/breweries/">Breweries</a>
+    <a href="/research/">Research</a>
+    <a href="/about/">About</a>
+  </nav>
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="prose">
-      <p class="eyebrow">The Archive</p>
-      <h1>The Walks</h1>
-      <p class="lede">One entry per year. New walk, new route, same rule: try everything, one drink at each place, don't die.</p>
+<section class="wrap grid page-hero" aria-labelledby="walks-title">
+    <div class="page-hero-text" data-stagger>
+      <h1 id="walks-title" data-reveal>The Walks</h1>
+      <p class="lead" data-reveal>One entry per year. New route, same rule: try everything, one drink at each place, don’t die.</p>
     </div>
+    <span class="photo shutter-load"><img src="/assets/img/beach-street-1913.jpg" width="1400" height="1113" alt="Steel framing going up for the El's Beach Street power house in 1913" decoding="async"></span>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="grid grid-2">
-        <a class="card walk-card" href="/walks/2026/">
-          <p class="eyebrow">August 1, 2026</p>
-          <h3>The Second Annual Walk</h3>
-          <p>The full loop — twelve stops across Fishtown and Kensington, one drink each, noon to nearly midnight.</p>
-          <p class="stat-line">12 stops · 12:30 PM – 11 PM</p>
-        </a>
-        <a class="card walk-card" href="/walks/2025/">
-          <p class="eyebrow">July 4, 2025</p>
-          <h3>The Inaugural Walk</h3>
-          <p>Where it started: a Fourth of July dare to see how much of Fishtown's beer scene we could cover in one day.</p>
-          <p class="stat-line">8 stops · Noon start</p>
-        </a>
+  <section class="section wrap" aria-label="Every walk, newest first">
+    <article class="grid walk-entry" aria-labelledby="w2026">
+      <div class="walk-year" aria-hidden="true" data-reveal>2026</div>
+      <div class="walk-info" data-stagger>
+        <h2 id="w2026" data-reveal><a href="/walks/2026/">The Second Annual Walk</a></h2>
+        <p class="lead" data-reveal>The full loop: twelve stops across Fishtown and Kensington, one drink each, noon to nearly midnight.</p>
+        <p class="facts" data-reveal>August 1, 2026 · 12 stops · about 4.6 miles · 12:30 PM to 11 PM</p>
       </div>
-    </div>
+      <span class="photo drift" data-reveal><img src="/assets/img/berks-street.jpg" width="1400" height="821" alt="Brick rowhouses and bare trees along Berks Street in Fishtown" loading="lazy" decoding="async"></span>
+    </article>
+    <article class="grid walk-entry" aria-labelledby="w2025">
+      <div class="walk-year" aria-hidden="true" data-reveal>2025</div>
+      <div class="walk-info" data-stagger>
+        <h2 id="w2025" data-reveal><a href="/walks/2025/">The Inaugural Walk</a></h2>
+        <p class="lead" data-reveal>Where it started: a Fourth of July dare to see how much of Fishtown’s beer scene we could cover in one day.</p>
+        <p class="facts" data-reveal>July 4, 2025 · 8 stops · about 4.0 miles · noon start</p>
+      </div>
+      <span class="photo drift" data-reveal><img src="/assets/img/el-kensington-ave.jpg" width="1024" height="768" alt="Kensington Avenue in the early morning, seen from underneath the elevated Market-Frankford train" loading="lazy" decoding="async"></span>
+    </article>
+    <article class="grid walk-entry" aria-labelledby="w2027">
+      <div class="walk-year" aria-hidden="true" data-reveal>2027</div>
+      <div class="walk-info" data-stagger>
+        <h2 id="w2027" data-reveal>The Third Annual Walk</h2>
+        <p class="lead" data-reveal>Next summer. The route isn’t set yet; the places on the radar are the candidates.</p>
+        <p class="facts" data-reveal><a href="/research/">See what’s on the radar &rarr;</a></p>
+      </div>
+      <span class="photo drift" data-reveal><img src="/assets/img/graffiti-pier.jpg" width="1400" height="933" alt="Concrete arches covered in graffiti at Graffiti Pier on the Delaware River" loading="lazy" decoding="async"></span>
+    </article>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2025–2026 Riley &amp; Friends Beer Walk.</p>
+  <div class="footer-top">
+    <div class="footer-notes">
+      <span>Riley &amp; Friends Beer Walk</span>
+      <span>Fishtown &amp; Kensington, Philadelphia</span>
+      <span>One day every summer, since 2025</span>
+    </div>
+    <a href="#top">Back to top</a>
+  </div>
+  <a class="footer-line" href="/walks/">See you in 2027</a>
+  <div class="footer-meta">
     <nav aria-label="Footer">
       <a href="/">Home</a>
       <a href="/walks/">Walks</a>
@@ -80,7 +100,22 @@
       <a href="/research/">Research</a>
       <a href="/about/">About</a>
     </nav>
+    <details class="credits">
+      <summary>Picture credits</summary>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Market-Frankford_line_on_Kensington_Avenue_in_Philadelphia.jpg" rel="noopener noreferrer">“Market-Frankford line on Kensington Avenue in Philadelphia”</a> by Dasprevailz, public domain, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown_Philadelphia.jpg" rel="noopener noreferrer">“Fishtown Philadelphia”</a> (Berks Street) by Tim Kiser, <a href="https://creativecommons.org/licenses/by-sa/2.5" rel="noopener noreferrer">CC BY-SA 2.5</a>, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Fishtown,_Philadelphia,_United_States_(Unsplash).jpg" rel="noopener noreferrer">“Fishtown, Philadelphia, United States”</a> by Ashim D’Silva, CC0, via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Frankford_EL_Construction,_1913,_Beach_Street_Power_House_(8110273082).jpg" rel="noopener noreferrer">“Frankford EL Construction, 1913, Beach Street Power House”</a> by Richard from USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener noreferrer">CC BY 2.0</a>, via Wikimedia Commons.</li>
+        <li><a href="https://www.metmuseum.org/art/collection/search/335759" rel="noopener noreferrer">“Woman Carrying Beer Steins”</a> by F. Droimer, 1912, public domain (CC0), The Metropolitan Museum of Art.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Manuscript_map_of_Kensington_in_Philadelphia._LOC_2018590114.jpg" rel="noopener noreferrer">“Manuscript map of Kensington in Philadelphia”</a> by George Gordon Meade, 1820, public domain, Library of Congress via Wikimedia Commons.</li>
+        <li>All pictures are cropped and shown in a blue duotone. Map data &copy; OpenStreetMap contributors.</li>
+      </ul>
+    </details>
+    <span class="place">Philadelphia, 2025–2026</span>
   </div>
 </footer>
+
+<script src="/assets/js/site.js"></script>
 </body>
 </html>
